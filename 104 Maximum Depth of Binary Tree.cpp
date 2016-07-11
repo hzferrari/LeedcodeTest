@@ -1,43 +1,43 @@
-//#include <iostream>
-//#include <queue>
-//using namespace std;
-//
-//struct TreeNode{
-//	int val;
-//	TreeNode *left;
-//	TreeNode *right;
-//	TreeNode(int x) :val(x), left(NULL), right(NULL){}
-//};
-//
-//class Solution{
-//public:
-//	int BFS(TreeNode *root)	//rootÊÇ½á¹¹ÌåTreeNodeµÄÖ¸Õë
-//	{
-//		if (!root) //Èç¹ûrootÎª·Ç0Öµ£¬£¡²Ù×÷·µ»Øfalse
-//			return 0;	//¼´rootµÄÖµÎª0Ê±£¬return 0¡£
-//		else root->val = 1;
-//		queue<TreeNode*> q;	//qÊÇ´æ´¢TreeNodeÖ¸ÕëµÄ¶ÓÁÐ
-//		q.push(root);
-//		while (!q.empty())
-//		{
-//			TreeNode *curNode = q.front();	//·µ»Øq¶ÓÁÐÍ·²¿Êý¾Ý£¨×óÓÒ¶¼ÊÇTreeNodeÖ¸ÕëÀàÐÍ£©
-//			q.pop(); //¶ÓÁÐÍ·²¿Êý¾Ý³öÁÐ
-//			if (q.empty() && !curNode->left && !curNode->right)
-//				return curNode->val;
-//			if (curNode->left)
-//			{
-//				curNode->left->val = curNode->val + 1;
-//				q.push(curNode->left);
-//			}
-//			if (curNode->right)
-//			{
-//				curNode->right->val = curNode->val + 1;
-//				q.push(curNode->right);
-//			}
-//		}
-//	}
-//	int maxDepth(TreeNode *root)
-//	{
-//		return BFS(root);
-//	}
-//};
+#include <iostream>
+#include <queue>
+using namespace std;
+
+struct TreeNode{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) :val(x), left(NULL), right(NULL){}
+};
+
+class Solution{
+public:
+	int BFS(TreeNode *root)	//rootæ˜¯ç»“æž„ä½“TreeNodeçš„æŒ‡é’ˆ
+	{
+		if (!root) //å¦‚æžœrootä¸ºéž0å€¼ï¼Œï¼æ“ä½œè¿”å›žfalse
+			return 0;	//å³rootçš„å€¼ä¸º0æ—¶ï¼Œreturn 0ã€‚
+		else root->val = 1;
+		queue<TreeNode*> q;	//qæ˜¯å­˜å‚¨TreeNodeæŒ‡é’ˆçš„é˜Ÿåˆ—
+		q.push(root);
+		while (!q.empty())
+		{
+			TreeNode *curNode = q.front();	//è¿”å›žqé˜Ÿåˆ—å¤´éƒ¨æ•°æ®ï¼ˆå·¦å³éƒ½æ˜¯TreeNodeæŒ‡é’ˆç±»åž‹ï¼‰
+			q.pop(); //é˜Ÿåˆ—å¤´éƒ¨æ•°æ®å‡ºåˆ—
+			if (q.empty() && !curNode->left && !curNode->right)
+				return curNode->val;
+			if (curNode->left)
+			{
+				curNode->left->val = curNode->val + 1;
+				q.push(curNode->left);
+			}
+			if (curNode->right)
+			{
+				curNode->right->val = curNode->val + 1;
+				q.push(curNode->right);
+			}
+		}
+	}
+	int maxDepth(TreeNode *root)
+	{
+		return BFS(root);
+	}
+};

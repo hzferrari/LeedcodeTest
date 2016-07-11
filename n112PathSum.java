@@ -1,0 +1,26 @@
+/**
+ * Created by hzferrari on 2016/1/13.
+ */
+public class n112PathSum {
+    //Definition for a binary tree node.
+        public class TreeNode{
+            int val;
+            TreeNode left;
+            TreeNode right;
+            TreeNode(int x){val=x;}
+        }
+
+//http://www.bubuko.com/infodetail-953705.html
+
+    public class Solution{
+        public	boolean hasPathSum(TreeNode root,int sum){
+            if(root==null)
+                return false;
+            if(root.left==null && root.right==null && root.val==sum)
+                return true;
+            else
+                return hasPathSum(root.left,sum-root.val) || hasPathSum(root.right,sum-root.val);
+        }
+    }
+}
+
